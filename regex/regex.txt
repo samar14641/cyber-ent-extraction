@@ -1,0 +1,32 @@
+matching chars: .^$*+?{}[]\|()
+
+a, X, 9 ...: ordinary chars
+
+. any char except newline i.e. \n
+^ start
+$ end
+[] character class
+	[ax4$] any of a, x, 4, or $ (special nature stripped in char class)
+	[a-z] any lowercase
+	[^5] any char except 5
+	[5^] any of 5 or ^
+\w any alphanum char or _ i.e. [a-zA-Z0-9_]
+\W any non-alphanum char i.e. [^a-zA-Z0-9_]
+\d any digit char i.e. [0-9]
+\D any non-digit char i.e. [^0-9]
+\s any space char i.e. [\t\n\f\v\r]
+\S any non-space char i.e. [^\t\n\f\v\r]
+\b any word boundry
+\B any non word boundry
+
+eg. [\s,.] any space, ',' or . char
+
++ 1 or more occurrences of the pattern on the left
+	ca+t matches cat, caat, caaat ...
+* 0 or more occurrences of the pattern on the left
+	ca*t matches ct, cat, caat, caaat ...
+	a[bcd]*b against 'abcbd' matches abcb
+? 0 or 1 occurrences of the pattern on the left
+	abc-?def matches abcdef or abc-def
+{m, n} between m and n reps of the pattern (inclusive)
+	ab{2, 4}c matches abbc, abbbc, and abbbbc
